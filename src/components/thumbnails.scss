@@ -1,0 +1,28 @@
+.thumbs {
+	display: grid;
+	grid-gap: 1rem;
+	grid-auto-rows: 1fr;
+	// background: bisque;
+	padding: .5rem 1rem;
+}
+
+@media (min-width: 768px) {
+	.thumbs {
+		grid-column-start: 2;
+		grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+	}
+	.thumb__item:hover .thumb__head {
+		opacity: 1;
+		transition: .4s opacity;
+	}
+	.thumb__head {
+		font-weight: normal;
+		opacity: 0;
+	}
+}
+
+@media (min-width: 992px) {
+	.thumbs {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}

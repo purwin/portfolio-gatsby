@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 
 import './thumbnails.scss'
 import thumb_lunchido from "../images/thumb-lunchido.png"
@@ -109,13 +110,13 @@ const Thumbnails = ({ display }) => {
 							hidden={display && !thumb.classes.includes(display)}
 						>
 							<div className={`thumb__icon`}>
-								<a href={thumb.link}>
+								<Link to={thumb.link}>
 									<img
 										src={thumb.img}
 										alt={thumb.title}
 										className={`thumb__img`}
 									/>
-								</a>
+								</Link>
 							</div>
 							<h3 className={`thumb__head`}>{thumb.title}</h3>
 						</div>

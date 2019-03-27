@@ -11,6 +11,7 @@ const LeavesPage = () => {
       imgs:allFile(filter:{relativePath:{regex:"/^ebook-leaves-\\\\d.+png/"}}, sort:{fields:name}) {
         edges {
           node {
+          id
           childImageSharp {
             fluid(maxWidth:1200) {
               ...GatsbyImageSharpFluid
@@ -30,7 +31,20 @@ const LeavesPage = () => {
         const imgs = data.imgs.edges;
         const leaves_cover = imgs.shift();
 
-        console.log(imgs);
+        const Body = () => (
+          <div className="feature__body">
+            <div className="body__row">
+              {imgs.map(({node}) => (
+                <div
+                  key={node.id}
+                  className={`body__item body__item--full`}
+                >
+                  <Img fluid={node.childImageSharp.fluid} />
+                </div>
+              ))}
+            </div>
+          </div>
+        );
         
         return (
           <Work
@@ -41,20 +55,7 @@ const LeavesPage = () => {
                 `“The Deathbed Edition”. An ebook of Mr. Whitman's epic 293-poem collection, broken up and styled from a .txt file using only RegEx.`,
               ]
             }
-            body={
-              <div className="feature__body">
-                <div className="body__row">
-                  {imgs.map(({node}) => (
-                    <div
-                      key={node.id}
-                      className={`body__item body__item--full`}
-                    >
-                      <Img fluid={node.childImageSharp.fluid} />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            }
+            body={<Body />}
           />
 			)}}
 		/>

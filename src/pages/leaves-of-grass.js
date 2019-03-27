@@ -32,18 +32,19 @@ const LeavesPage = () => {
         const leaves_cover = imgs.shift();
 
         const Body = () => (
-          <div className="feature__body">
-            <div className="body__row">
-              {imgs.map(({node}) => (
+            imgs.map(({node}, index) => (
+              <div
+                key={index}
+                className={`body__row`}
+              >              
                 <div
                   key={node.id}
                   className={`body__item body__item--full`}
                 >
                   <Img fluid={node.childImageSharp.fluid} />
                 </div>
-              ))}
-            </div>
-          </div>
+              </div>
+            ))
         );
         
         return (

@@ -18,6 +18,44 @@ const AboutPage = () => {
     }
   `;
 
+  const Body = () => (
+    <>
+      <div className={`body__row`}>
+        <div className={`body__item`}>
+          <h3>Hello! I am [a/n]:</h3>
+          <ul>
+            <li>Ebook Designer at Penguin Random House</li>
+            <li>Native son of New Jersey</li>
+            <li>Jackson Heightsian working in New York City</li>
+            <li>Experienced in HTML, CSS, JavaScript, Python, SQL, among others</li>
+            <li>Frequent camper</li>
+            <li>Emergency carpenter</li>
+            <li>Future welder</li>
+          </ul>
+        </div>
+      </div>
+      <div className={`body__row`}>
+        <div className={`body__item body__item--r`}>
+          <h3>I like to:</h3>
+          <ul>
+            <li>Make websites</li>
+            <li>Build databases for fun</li>
+            <li>Design sensible interfaces</li>
+          </ul>
+        </div>
+      </div>
+      <div className={`body__row`}>
+        <div className={`body__item`}>
+          <h3>Contact!</h3>
+          <ul>
+            <li>mpurwin@gmail.com</li>
+            <li>GitHub</li>
+          </ul>
+        </div>
+      </div>
+    </>
+  );
+
   return (
     <StaticQuery
       query={query}
@@ -25,45 +63,8 @@ const AboutPage = () => {
         console.log(data);
         return (
         <Work
-          title={`About`}
           cover={<Img fluid={data.file.childImageSharp.fluid} />}
-          body={
-            <>
-              <div className={`body__row`}>
-                <div className={`body__item`}>
-                  <h3>Hello! I am [a/n]:</h3>
-                  <ul>
-                    <li>Ebook Designer at Penguin Random House</li>
-                    <li>Native son of New Jersey</li>
-                    <li>Jackson Heightsian working in New York City</li>
-                    <li>Experienced in HTML, CSS, JavaScript, Python, SQL, among others</li>
-                    <li>Frequent camper</li>
-                    <li>Emergency carpenter</li>
-                    <li>Future welder</li>
-                  </ul>
-                </div>
-              </div>
-              <div className={`body__row`}>
-                <div className={`body__item body__item--r`}>
-                  <h3>I like to:</h3>
-                  <ul>
-                    <li>Make websites</li>
-                    <li>Build databases for fun</li>
-                    <li>Design sensible interfaces</li>
-                  </ul>
-                </div>
-              </div>
-              <div className={`body__row`}>
-                <div className={`body__item`}>
-                  <h3>Contact!</h3>
-                  <ul>
-                    <li>mpurwin@gmail.com</li>
-                    <li>GitHub</li>
-                  </ul>
-                </div>
-              </div>
-            </>
-          }
+          body={<Body />}
         />
       )}}
     />

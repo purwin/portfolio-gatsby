@@ -39,7 +39,7 @@ const JennyPage = () => {
                 </div>
                 <div className="body__row">
                     <div className={`body__item body__item--c`}>
-                      <img src={jenny_gif} />
+                      <img src={jenny_gif} alt="" />
                     </div>
                 </div>
               </div>

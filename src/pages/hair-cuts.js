@@ -13,6 +13,7 @@ const HairCutsPage = () => {
 			imgs:allFile(filter:{relativePath:{regex:"/^ebook-hair-cuts-\\\\d+.+png$/"}}) {
 				edges {
 					node {
+						id
 					 childImageSharp {
 						 fluid(maxWidth:1200) {
 							...GatsbyImageSharpFluid
@@ -54,8 +55,11 @@ const HairCutsPage = () => {
 									<img src={haircuts_gif} alt="" />
 								</div>
 							</div>
-							{imgs.map(({node}) => (
-								<div className={`body__row`}>
+							{imgs.map(({node}, index) => (
+								<div
+									key={index}
+									className={`body__row`}
+								>
 									<div
 										key={node.id}
 										className={`body__item body__item--full`}

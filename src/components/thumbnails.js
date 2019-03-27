@@ -18,7 +18,6 @@ import thumb_ellipsis from "../images/thumb-ellipsis.png"
 
 
 const Thumbnails = ({ display }) => {
-	console.log(display);
 	const thumbs = [
 		{
 			title: "Lunchido",

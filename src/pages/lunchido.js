@@ -30,6 +30,22 @@ const LunchidoPage = () => {
       render={data => {
         const imgs = data.imgs.edges;
 
+        const Body = () => (
+          imgs.map(({node}, index) => (
+            <div
+              key={index}
+              className={`body__row`}
+            >
+              <div
+                key={node.id}
+                className={`body__item body__item--full`}
+              >
+                <Img fluid={node.childImageSharp.fluid} />
+              </div>
+            </div>
+          ))
+        )
+
         return (
           <Work
             title={`Lunchido!`}
@@ -41,21 +57,7 @@ const LunchidoPage = () => {
                 `<a href="#">Github</a>`,
               ]
             }
-            body={
-              imgs.map(({node}, index) => (
-                <div
-                  key={index}
-                  className={`body__row`}
-                >
-                  <div
-                    key={node.id}
-                    className={`body__item body__item--full`}
-                  >
-                    <Img fluid={node.childImageSharp.fluid} />
-                  </div>
-                </div>
-              ))
-            }
+            body={<Body />}
           />
         );}
       }

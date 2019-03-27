@@ -1,0 +1,94 @@
+// Nav Styling
+
+.nav {
+  background-color: #ffeaa7;
+  opacity: .8;
+  position: fixed;
+  top: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: .2s ease;
+  width: 100%;
+}
+
+.nav__link {
+  color: #333;
+  border-bottom: 0;
+  text-decoration: none;
+}
+
+.open {
+  -webkit-transform: scaleY(1);
+  -o-transform: scaleY(1);
+  -ms-transform: scaleY(1);
+  transform: scaleY(1);
+}
+
+.nav__list {
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.nav__item {
+  padding: 1rem;
+  margin: 0 1rem;
+  border-bottom: 1px solid #666;
+}
+
+.nav__item:last-of-type {
+  border: none;
+}
+
+@media (min-width: 768px) {
+  .nav {
+    position: relative;
+    background-color: inherit;
+    transform: scaleY(1);
+    transform-origin: top;
+    transition: .2s ease;
+  }
+
+  .nav__list {
+    text-align: left;
+    margin: 0;
+  }
+
+  .nav__item {
+    padding: 0;
+    margin: 0 0 .1rem;
+    border: none;
+  }
+
+  .nav__link {
+    position: relative;
+  }
+
+  .nav__link {
+    position: relative;
+  }
+  
+  .nav__link::after{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: inline-block;
+    margin-top: 1.4rem;
+    right: 0;
+    transition: width .2s ease;
+  }
+     
+  .nav__link:hover::after{
+      width: 100%;
+      left: 0;
+    }
+  
+  .nav__item:nth-of-type(2n+1) .nav__link:hover::after {
+      background: #91c5ec;
+    }
+
+  .nav__item:nth-of-type(2n) .nav__link:hover::after {
+    background: #fecc99;
+  }
+}

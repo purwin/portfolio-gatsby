@@ -49,7 +49,7 @@ const AboutPage = () => {
           <h3>Contact!</h3>
           <ul>
             <li>mpurwin@gmail.com</li>
-            <li>GitHub</li>
+            <li><a href="https://github.com/purwin">GitHub</a></li>
           </ul>
         </div>
       </div>

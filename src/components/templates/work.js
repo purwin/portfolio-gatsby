@@ -1,34 +1,34 @@
 import React from 'react'
-import PropTypes from "prop-types"
+import PropTypes from 'prop-types'
 
-import Layout from "../templates/layout"
+import Layout from '../templates/layout'
 import './work.scss'
 
 
 const Work = ({ title, cover, bio, body }) => (
 	<Layout>
-		<div className="feature handbook">
-			<div className="feature__head">
-				<h1 className="feature__h1">{title}</h1>
+		<div className={`feature handbook`}>
+			<div className={`feature__head`}>
+				<h1 className={`feature__h1`}>{title}</h1>
 			</div>
 			{cover && 
-				<div className="feature__cover">
+				<div className={`feature__cover`}>
 					{cover}
 				</div>
 			}
 			{bio && 
-				<div className="feature__bio">
+				<div className={`feature__bio`}>
 					{bio.map((item, index) => (
 						<p
-							className="feature__p"
-							key="index"
+							className={`feature__p`}
+							key={index}
 						>
 							{item}
 						</p>
 					))}
 				</div>
 			}
-			<div className="feature__body">
+			<div className={`feature__body`}>
 				{body}
 			</div>
 		</div>

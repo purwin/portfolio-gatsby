@@ -14,7 +14,7 @@ import Nav from "../nav"
 import Thumbnails from "../thumbnails"
 import "./layout.css"
 
-const Layout = ({ children }) => (
+const Layout = ({ children, display }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -33,7 +33,7 @@ const Layout = ({ children }) => (
         </div>
         <div className="main">
           <main>{children}</main>
-          <Thumbnails />
+          <Thumbnails display={display} />
         </div>
       </div>
     )}

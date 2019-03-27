@@ -8,9 +8,11 @@ const LunchidoPage = () => {
 
   const lunchido_img = graphql`
     query {
-      imgs:allFile(filter:{name:{regex:"/^lunchido/"}}) {
+      imgs:allFile(filter:{name:{regex:"/^lunchido/"}},
+      sort:{fields:name}) {
         edges {
           node {
+            id
            childImageSharp {
              fluid(maxWidth:1200) {
               ...GatsbyImageSharpFluid
@@ -30,7 +32,7 @@ const LunchidoPage = () => {
 
         return (
           <Work
-            title="Lunchido!"
+            title={`Lunchido!`}
             bio={
               [
                 `Let your computer decide lunch for you!`,
@@ -40,18 +42,19 @@ const LunchidoPage = () => {
               ]
             }
             body={
-              <div className="feature__body">
-                <div className="body__row">
-                  {imgs.map(({node}) => (
-                    <div
-                      key={node.id}
-                      className={`body__item body__item--full`}
-                    >
-                      <Img fluid={node.childImageSharp.fluid} />
-                    </div>
-                  ))}
+              imgs.map(({node}, index) => (
+                <div
+                  key={index}
+                  className={`body__row`}
+                >
+                  <div
+                    key={node.id}
+                    className={`body__item body__item--full`}
+                  >
+                    <Img fluid={node.childImageSharp.fluid} />
+                  </div>
                 </div>
-              </div>
+              ))
             }
           />
         );}

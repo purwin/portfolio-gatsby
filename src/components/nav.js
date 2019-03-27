@@ -1,5 +1,7 @@
 import React from 'react'
-import { Link } from "gatsby"
+import { Link } from 'gatsby'
+
+import './nav.scss'
 
 const Nav = () => {
   const navItems = ["About", "Work", "Ebooks", "Web", "Graphics", "Misc"];
@@ -12,7 +14,10 @@ const Nav = () => {
             key={index}
             id={`nav-${item.toLowerCase()}`}
           >
-            <Link to={`/${item.toLowerCase()}`}>
+            <Link
+              to={`/${item.toLowerCase()}`}
+              className={`nav__link`}
+            >
               {item}
             </Link>
           </li>

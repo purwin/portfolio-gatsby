@@ -37,8 +37,8 @@ const LunchidoPage = () => {
               [
                 `Let your computer decide lunch for you!`,
                 `Single-page web app that offers lunch suggestions based on your location and current food cravings.`,
-                `<a href="lunchido/index.html">Try it out!</a>`,
-                `<a href="https://github.com/purwin/lunchido">Github</a>`,
+                `<a href="#">Try it out!</a>`,
+                `<a href="#">Github</a>`,
               ]
             }
             body={

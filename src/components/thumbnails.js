@@ -100,20 +100,28 @@ const Thumbnails = ({ display }) => {
 	];
 
 	return (
-		<div className="thumbs">
-			{thumbs.map((thumb, index) => (
-					<div
-						key={index}
-						className={`thumb__item ${thumb.classes}`}
-					>
-						<div className="thumb__icon">
-							<a href={thumb.link}>
-								<img src={thumb.img} alt={thumb.title} className="thumb__img" />
-							</a>
+		<div className={`thumbs`}>
+			{
+				thumbs.map((thumb, index) => (
+						<div
+							key={index}
+							className={`thumb__item ${thumb.classes}`}
+							hidden={display && !thumb.classes.includes(display)}
+						>
+							<div className={`thumb__icon`}>
+								<a href={thumb.link}>
+									<img
+										src={thumb.img}
+										alt={thumb.title}
+										className={`thumb__img`}
+									/>
+								</a>
+							</div>
+							<h3 className={`thumb__head`}>{thumb.title}</h3>
 						</div>
-						<h3 className="thumb__head">{thumb.title}</h3>
-					</div>
-			))}
+					)
+				)
+			}
 		</div>
 	)
 

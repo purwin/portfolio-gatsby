@@ -21,7 +21,7 @@ const AboutPage = () => {
   const Body = () => (
     <>
       <div className={`body__row`}>
-        <div className={`body__item`}>
+        <div className={`body__item body__item--r`}>
           <h3>Hello! I am [a/n]:</h3>
           <ul>
             <li>Ebook Designer at Penguin Random House</li>
@@ -35,7 +35,7 @@ const AboutPage = () => {
         </div>
       </div>
       <div className={`body__row`}>
-        <div className={`body__item body__item--r`}>
+        <div className={`body__item`}>
           <h3>I like to:</h3>
           <ul>
             <li>Make websites</li>
@@ -45,7 +45,7 @@ const AboutPage = () => {
         </div>
       </div>
       <div className={`body__row`}>
-        <div className={`body__item`}>
+        <div className={`body__item body__item--r`}>
           <h3>Contact!</h3>
           <ul>
             <li>mpurwin@gmail.com</li>
@@ -59,14 +59,12 @@ const AboutPage = () => {
   return (
     <StaticQuery
       query={query}
-      render={data => {
-        console.log(data);
-        return (
+      render={data => (
         <Work
           cover={<Img fluid={data.file.childImageSharp.fluid} />}
           body={<Body />}
         />
-      )}}
+      )}
     />
   );
 

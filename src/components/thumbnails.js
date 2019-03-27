@@ -16,7 +16,8 @@ import thumb_mhp from "../images/thumb-mhp.png"
 import thumb_ellipsis from "../images/thumb-ellipsis.png"
 
 
-const Thumbnails = props => {
+const Thumbnails = ({ display }) => {
+	console.log(display);
 	const thumbs = [
 		{
 			title: "Lunchido",

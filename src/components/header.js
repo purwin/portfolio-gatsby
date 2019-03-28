@@ -8,6 +8,8 @@ import './header.scss'
 class Header extends Component {
   constructor(props){
     super(props);
+    // this.changeNouns = this.changeNouns.bind(this);
+    // this.changeColors = this.changeColors.bind(this);
     this.state = {
       coolThing: ``,
       coolColor: ``
@@ -19,26 +21,22 @@ class Header extends Component {
   // hex colors from https://flatuicolors.com/palette/us
   coolColors = [`#55efc4`, `#81ecec`, `#74b9ff`, `#a29bfe`, `#00b894`, `#00cec9`, `#0984e3`, `#6c5ce7`, `#fab1a0`, `#ff7675`, `#fd79a8`, `#fdcb6e`, `#e17055`, `#d63031`, `#e84393`]
 
-  changeNouns() {
-    let noun = this.state.coolThing;
-    while (noun === this.state.coolThing) {
-      noun = randomize(this.coolThings)
+  changeItems(item, arr) {
+    let temp = item;
+    while (temp === item) {
+      temp = randomize(arr)
     }
-    this.setState({coolThing: noun});
-  }
-
-  changeColors() {
-    let color = this.state.coolColor;
-    while (color === this.state.coolColor) {
-      color = randomize(this.coolColors)
-    }
-    this.setState({coolColor: color});
+    return temp
   }
 
   componentDidMount() {
     setInterval(() => {
-      this.changeNouns()
-      this.changeColors()
+      let newNoun = this.changeItems(this.state.coolThing, this.coolThings);
+      let newColor = this.changeItems(this.state.coolColor, this.coolColors);
+      this.setState({
+        coolThing: newNoun,
+        coolColor: newColor
+      })
     }, 1500)
  }
 

@@ -4,6 +4,15 @@
   // background: lightcoral;
 }
 
+  .header__p {
+    margin-top: 1rem;
+    line-height: 1.25rem;
+  }
+
+.bio {
+  display: block;
+}
+
 
 @media (min-width: 768px) {
   .header {
@@ -12,4 +21,11 @@
     width: 20vw;
   }
 
+}
+
+
+@media (min-width: 968px) {
+  .bio {
+    display: inline;
+  }
 }

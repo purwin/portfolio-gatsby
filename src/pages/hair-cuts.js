@@ -40,9 +40,6 @@ const HairCutsPage = () => {
 				const imgs = data.imgs.edges;
 				const haircuts_cover = data.cover;
 
-				console.log(imgs);
-				console.log(haircuts_cover);
-	
 				return (
 					<Work
 						title={`Hair Cuts`}

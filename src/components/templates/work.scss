@@ -78,7 +78,7 @@
 		grid-gap: 1rem;
 	}
 	.body__item {
-		grid-column: 1 / span 2;
+		grid-column: auto / span 2;
 	}
 	.body__item--c {
 		grid-column: 2 / span 2;

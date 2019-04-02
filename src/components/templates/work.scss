@@ -69,9 +69,6 @@
 	.feature__bio {
 		grid-column: 2 / -1;
 	}
-	// .feature__body {
-	// 	grid-template-columns: repeat(2, 1fr);
-	// }
 	.body__row {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);

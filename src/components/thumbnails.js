@@ -70,7 +70,7 @@ const Thumbnails = ({ display }) => {
 		{
 			title: "Art Manifestos",
 			img: thumb_manifestos,
-			link: "/manifestos",
+			link: "/art-manifestos",
 			classes: "work ebooks"
 		},
 		{

@@ -7,7 +7,7 @@ import './work.scss'
 
 const Work = ({ title, cover, bio, body }) => (
 	<Layout>
-		<div className={`feature handbook`}>
+		<div className={`feature`}>
 			<div className={`feature__head`}>
 				<h1 className={`feature__h1`}>{title}</h1>
 			</div>
@@ -37,9 +37,9 @@ const Work = ({ title, cover, bio, body }) => (
 
 Work.propTypes = {
   title: PropTypes.string,
-  cover: PropTypes.string,
-  bio: PropTypes.array,
-  body: PropTypes.string,
+	cover: PropTypes.node,
+	bio: PropTypes.array,
+  body: PropTypes.node,
 }
 
 export default Work;

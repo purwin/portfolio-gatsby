@@ -11,14 +11,14 @@ const WelcomePage = () => {
 
   const query = graphql`
     query {
-      imgs:allFile(filter:{name:{regex:"/^welcome-2016/"}},
+      imgs:allFile(filter:{name:{regex:"/^welcome-2016-\\\\d+/"}},
       sort:{fields:name}) {
         edges {
           node {
             id
-           childImageSharp {
-             fluid(maxWidth:1200) {
-              ...GatsbyImageSharpFluid
+            childImageSharp {
+              fluid(maxWidth:1200) {
+                ...GatsbyImageSharpFluid
              }
            }
           }
@@ -33,21 +33,30 @@ const WelcomePage = () => {
       render={data => {
         const imgs = data.imgs.edges;
 
+        const cover = imgs.shift();
+
         const Body = () => (
-          imgs.map(({node}, index) => (
-            <div
-              key={index}
-              className={`body__row`}
-            >
+          <>
+            <div className={`body__row`}>
               <div
-                key={node.id}
+                key={cover.node.id}
                 className={`body__item body__item--full`}
               >
-                <Img fluid={node.childImageSharp.fluid} />
+                <Img fluid={cover.node.childImageSharp.fluid} />
               </div>
             </div>
-          ))
-        )
+            <div className={`body__row`}>
+              {imgs.map(({node}, index) => (
+                <div
+                  key={node.id}
+                  className={`body__item ${ index + 1 === imgs.length ? `body__item--c` : index % 2 !== 0 && `body__item--r`}`}
+                >
+                  <Img fluid={node.childImageSharp.fluid} />
+                </div>
+              ))}
+            </div>
+          </>
+        );
 
         return (
           <Work
@@ -55,8 +64,8 @@ const WelcomePage = () => {
             bio={bio}
             body={<Body />}
           />
-        );}
-      }
+        );
+      }}
     />
   );
 

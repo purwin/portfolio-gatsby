@@ -5,6 +5,14 @@ import Img from "gatsby-image"
 import Work from "../components/templates/work"
 
 const LunchidoPage = () => {
+  const title = `Lunchido!`;
+
+  const bio = [
+                `Let your computer decide lunch for you!`,
+                `Single-page web app that offers lunch suggestions based on your location and current food cravings.`,
+                <a href="#">Try it out!</a>,
+                <a href="#">Github</a>,
+              ];
 
   const lunchido_img = graphql`
     query {
@@ -13,9 +21,9 @@ const LunchidoPage = () => {
         edges {
           node {
             id
-           childImageSharp {
-             fluid(maxWidth:1200) {
-              ...GatsbyImageSharpFluid
+            childImageSharp {
+              fluid(maxWidth:1200) {
+                ...GatsbyImageSharpFluid
              }
            }
           }
@@ -48,15 +56,8 @@ const LunchidoPage = () => {
 
         return (
           <Work
-            title={`Lunchido!`}
-            bio={
-              [
-                `Let your computer decide lunch for you!`,
-                `Single-page web app that offers lunch suggestions based on your location and current food cravings.`,
-                <a href="#">Try it out!</a>,
-                <a href="#">Github</a>,
-              ]
-            }
+            title={title}
+            bio={bio}
             body={<Body />}
           />
         );}

@@ -1,69 +1,68 @@
-import React from 'react';
+import React from 'react'
 import { StaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
 
-import Work from "../components/templates/work"
+import Layout from '../components/templates/layout'
+import SEO from '../components/seo'
 
 const MiscPage = () => {
 
   const query = graphql`
     query {
-      file(relativePath: {eq:"icon.png"}) {
-        childImageSharp {
-          fluid(maxWidth:1200) {
-          ...GatsbyImageSharpFluid
+      imgs:allFile(filter:{name:{regex:"/^misc-/"}},
+      sort:{fields:name}) {
+        edges {
+          node {
+            id
+            childImageSharp {
+              fluid(maxWidth:1200) {
+                ...GatsbyImageSharpFluid
+             }
+           }
           }
         }
       }
     }
   `;
 
-  const Body = () => (
-    <>
-      <div className={`body__row`}>
-        <div className={`body__item`}>
-          <h3>Hello! I am [a/n]:</h3>
-          <ul>
-            <li>Ebook Designer at Penguin Random House</li>
-            <li>Native son of New Jersey</li>
-            <li>Jackson Heightsian working in New York City</li>
-            <li>Experienced in HTML, CSS, JavaScript, Python, SQL, among others</li>
-            <li>Frequent camper</li>
-            <li>Emergency carpenter</li>
-            <li>Future welder</li>
-          </ul>
-        </div>
-      </div>
-      <div className={`body__row`}>
-        <div className={`body__item body__item--r`}>
-          <h3>I like to:</h3>
-          <ul>
-            <li>Make websites</li>
-            <li>Build databases for fun</li>
-            <li>Design sensible interfaces</li>
-          </ul>
-        </div>
-      </div>
-      <div className={`body__row`}>
-        <div className={`body__item`}>
-          <h3>Contact!</h3>
-          <ul>
-            <li>mpurwin@gmail.com</li>
-            <li>GitHub</li>
-          </ul>
-        </div>
-      </div>
-    </>
-  );
-
   return (
     <StaticQuery
       query={query}
-      render={data => (
-        <Work
-          title={`Miscellaneous Things`}
-          body={<Body />}
-        />
-      )}
+      render={data => {
+        const imgs = data.imgs.edges;
+
+        const Body = () => (
+          <>
+            <div className={`feature__head`}>
+              <h1 className={`feature__h1`}>Miscellaneous Things</h1>
+            </div>
+            <div className={`feature misc`}>
+              <div className={`feature__body`}>
+                {imgs.map(({node}, index) => (
+                  <div
+                    key={index}
+                    className={`body__row`}
+                  >
+                    <div
+                      key={node.id}
+                      className={`body__item body__item--full`}
+                    >
+                      <Img fluid={node.childImageSharp.fluid} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </>
+        );
+
+        return (
+          <Layout>
+            <SEO title="Miscellaneous" keywords={[`gatsby`, `application`, `react`]} />
+            <Body />
+          </Layout>
+        )
+      }}
     />
   );
 

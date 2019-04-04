@@ -7,29 +7,35 @@ import Work from "../components/templates/work"
 
 const LeavesPage = () => {
 	const query = graphql`
-    query {
-      imgs:allFile(filter:{relativePath:{regex:"/^ebook-leaves-\\\\d.+png/"}}, sort:{fields:name}) {
-        edges {
-          node {
+  query {
+    imgs:allFile(filter:{relativePath:{regex:"/^ebook-leaves-\\\\d+.+png$/"}}) {
+      edges {
+        node {
           id
-          childImageSharp {
-            fluid(maxWidth:1200) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-          }
+         childImageSharp {
+           fluid(maxWidth:1200) {
+            ...GatsbyImageSharpFluid
+           }
+         }
+        }
+      }
+    },
+    cover:file(relativePath: {eq:"ebook-leaves-cover.png"})
+    {
+      childImageSharp {
+        fluid(maxWidth:1200) {
+        ...GatsbyImageSharpFluid
         }
       }
     }
-  `;
+  }
+`;
 
 	return (
 		<StaticQuery
 			query={query}
 			render={data => {
-
         const imgs = data.imgs.edges;
-        const leaves_cover = imgs.shift();
 
         const Body = () => (
             imgs.map(({node}, index) => (
@@ -50,7 +56,7 @@ const LeavesPage = () => {
         return (
           <Work
             title={`Leaves of Grass`}
-            cover={<Img fluid={leaves_cover.node.childImageSharp.fluid} />}
+            cover={<Img fluid={data.cover.childImageSharp.fluid} />}
             bio={
               [
                 `“The Deathbed Edition”. An ebook of Mr. Whitman's epic 293-poem collection, broken up and styled from a .txt file using only RegEx.`,

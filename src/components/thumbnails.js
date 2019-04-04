@@ -20,82 +20,82 @@ import thumb_ellipsis from "../images/thumb-ellipsis.png"
 const Thumbnails = ({ display }) => {
 	const thumbs = [
 		{
-			title: "Lunchido",
+			title: `Lunchido`,
 			img: thumb_lunchido,
-			link: "/lunchido",
-			classes: "work web"
+			link: `/lunchido`,
+			classes: `work web`
 		},
 		{
-			title: "A Handbook for Sailing",
+			title: `A Handbook for Sailing`,
 			img: thumb_handbook,
-			link: "/handbook",
-			classes: "work ebooks"
+			link: `/handbook`,
+			classes: `work ebooks`
 		},
 		{
-			title: "I’m the Jenny",
+			title: `I’m the Jenny`,
 			img: thumb_jenny,
-			link: "/im-the-jenny",
-			classes: "work graphics"
+			link: `/im-the-jenny`,
+			classes: `work graphics`
 		},
 		{
-			title: "Leaves of Grass",
+			title: `Leaves of Grass`,
 			img: thumb_leaves,
-			link: "/leaves-of-grass",
-			classes: "work ebooks"
+			link: `/leaves-of-grass`,
+			classes: `work ebooks`
 		},
 		{
-			title: "Lighthouses of Jersey",
+			title: `Lighthouses of Jersey`,
 			img: thumb_lighthouses,
-			link: "/lighthouses",
-			classes: "work graphics"
+			link: `/lighthouses`,
+			classes: `work graphics`
 		},
 		{
-			title: "Hair Cuts",
+			title: `Hair Cuts`,
 			img: thumb_haircuts,
-			link: "/hair-cuts",
-			classes: "work ebooks"
+			link: `/hair-cuts`,
+			classes: `work ebooks`
 		},
 		{
-			title: "The Self-Appointed Town Detective",
+			title: `The Self-Appointed Town Detective`,
 			img: thumb_tsatdghbb,
-			link: "/tsatdghbb",
-			classes: "work ebooks"
+			link: `/tsatdghbb`,
+			classes: `work ebooks`
 		},
 		{
-			title: "I Am Sorry, DF297",
+			title: `I Am Sorry, DF297`,
 			img: thumb_iamsorry,
-			link: "/i-am-sorry",
-			classes: "work ebooks"
+			link: `/i-am-sorry`,
+			classes: `work ebooks`
 		},
 		{
-			title: "Art Manifestos",
+			title: `Art Manifestos`,
 			img: thumb_manifestos,
-			link: "/art-manifestos",
-			classes: "work ebooks"
+			link: `/art-manifestos`,
+			classes: `work ebooks`
 		},
 		{
-			title: "Welcome to 2016",
+			title: `Welcome to 2016`,
 			img: thumb_welcome2016,
-			link: "/welcome-2016",
-			classes: "work graphics"
+			link: `/welcome-2016`,
+			classes: `work graphics`
 		},
 		{
-			title: "NYC Parks",
+			title: `NYC Parks`,
 			img: thumb_parks,
-			link: "/nyc-parks",
-			classes: "work graphics"
+			link: `/nyc-parks`,
+			classes: `work graphics`
 		},
 		{
-			title: "Melville House Books",
+			title: `Melville House Books`,
 			img: thumb_mhp,
-			link: "/mhp",
-			classes: "work graphics"
+			link: `/mhp`,
+			classes: `work graphics`
 		},
 		{
-			title: "Ellipsis Press",
+			title: `Ellipsis Press`,
 			img: thumb_ellipsis,
-			link: "/ellipsis",
-			classes: "work graphics"
+			link: `/ellipsis`,
+			classes: `work graphics`
 		},
 	];
 

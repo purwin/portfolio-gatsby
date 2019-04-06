@@ -4,6 +4,7 @@ import React, { Component } from "react"
 
 import { randomize } from '../utils/nouns'
 import './header.scss'
+import Icon from '../images/mp.inline.svg'
 
 class Header extends Component {
   constructor(props){
@@ -50,7 +51,7 @@ class Header extends Component {
             <Link
               to="/"
             >
-              {this.props.siteTitle}
+              <Icon />
             </Link>
           </h1>
           <p className="header__p">

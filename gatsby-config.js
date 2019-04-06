@@ -43,6 +43,14 @@ module.exports = {
         implementation: require("sass"),
       },
     },
-    `gatsby-plugin-transition-link`
+    `gatsby-plugin-transition-link`,
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /\.inline\.svg$/
+        }
+      }
+    }
   ],
 }
